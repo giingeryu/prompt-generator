@@ -1,0 +1,27 @@
+#!/usr/bin/env node
+
+/**
+ * 点点平台提示词生成器
+ * 生成500字以内的精简高效提示词
+ */
+
+const args = process.argv.slice(2);
+
+if (args.includes('--help') || args.includes('-h')) {
+  console.log('点点平台提示词生成器\n');
+  console.log('用法：');
+  console.log('  /diandian-prompt              启动交互式提示词生成');
+  console.log('  /diandian-prompt <需求描述>    直接生成500字以内的提示词');
+  console.log('\n特点：');
+  console.log('  - 严格控制在500字以内');
+  console.log('  - 结构清晰，可直接使用');
+  console.log('  - 适配点点平台特性');
+  process.exit(0);
+}
+
+// 传递输入给 Claude
+const input = args.join(' ');
+console.log(JSON.stringify({
+  input: input || '',
+  timestamp: new Date().toISOString()
+}));
