@@ -57,6 +57,7 @@ tags: [prompt, generator, meta-prompting]
 ### 7. 验证和交付
 - 如果使用了专家，说明他们的审查
 - 呈现最终的精炼 prompt
+- **必须将最终 prompt 放在代码块中输出**（使用 ``` 包裹），方便用户一键复制
 
 ## 输出格式模板
 

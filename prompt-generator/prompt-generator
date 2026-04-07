@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+
+/**
+ * Prompt Generator - 专业 Prompt 生成器
+ * 基于 meta-prompting 最佳实践生成高质量 prompts
+ */
+
+const args = process.argv.slice(2);
+
+if (args.includes('--help') || args.includes('-h')) {
+  console.log('Prompt Generator - 专业 Prompt 生成器\n');
+  console.log('用法：');
+  console.log('  /prompt-generator              启动交互式 prompt 生成');
+  console.log('  /prompt-generator <需求描述>    直接生成 prompt');
+  process.exit(0);
+}
+
+// 传递输入给 Claude
+const input = args.join(' ');
+console.log(JSON.stringify({
+  input: input || '',
+  timestamp: new Date().toISOString()
+}));
